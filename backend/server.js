@@ -6,6 +6,11 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+// middlewares
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(bodyParser.json());
+
 const PORT = process.env.PORT || 5000;
 
 // connect db and start server
