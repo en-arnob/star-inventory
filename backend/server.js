@@ -11,6 +11,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+  res.json({ msg: "API Running at port 5000" });
+});
+
+require("./config/route.config")(app);
+
 const PORT = process.env.PORT || 5000;
 
 // connect db and start server
