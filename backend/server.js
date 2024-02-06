@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const errorHandler = require("./middlewares/errorHandler");
 
 const app = express();
 
@@ -18,6 +19,9 @@ app.get("/", (req, res) => {
 require("./config/route.config")(app);
 
 const PORT = process.env.PORT || 5000;
+
+// error handler
+app.use(errorHandler);
 
 // connect db and start server
 
