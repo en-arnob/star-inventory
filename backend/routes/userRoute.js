@@ -1,9 +1,8 @@
 module.exports = (app) => {
   const userRouter = require("express").Router();
+  const userController = require("../controllers/userController");
 
-  userRouter.get("/register", (req, res) => {
-    res.json({ msg: "User Router Working" });
-  });
+  userRouter.post("/register", userController.register);
 
   app.use("/api/user", userRouter);
 };
