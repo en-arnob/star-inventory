@@ -27,5 +27,19 @@ exports.register = asyncHandler(async (req, res) => {
     password,
   });
 
-  res.json({ name: name });
+  if (user) {
+    const { _id, name, email, phone, photo, bio } = user;
+    res.status(201).json({
+      msg: "User created successfully",
+      _id,
+      name,
+      phone,
+      email,
+      photo,
+      bio,
+    });
+  } else {
+    res.status(400);
+    throw new Error("User Registration Failed");
+  }
 });
