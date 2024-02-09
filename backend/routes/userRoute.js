@@ -3,6 +3,8 @@ module.exports = (app) => {
   const userController = require("../controllers/userController");
 
   userRouter.post("/register", userController.register);
+  userRouter.post("/login", userController.login);
+  userRouter.get("/logout", userController.logout);
 
   app.use("/api/user", userRouter);
 };
