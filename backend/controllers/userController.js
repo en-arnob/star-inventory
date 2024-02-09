@@ -118,3 +118,5 @@ exports.logout = asyncHandler(async (req, res) => {
 
   return res.status(200).json({ message: "Logged out successfully" });
 });
+
+exports.getUserData = asyncHandler(async (req, res) => {});
