@@ -13,10 +13,10 @@ exports.protected = asyncHandler(async (req, res, next) => {
 
     // verify token
     const verified = jwt.verify(token, process.env.JWT_SECRET);
-    const user = await User.findById(verified.id);
+    const user = await User.findById(verified.id).select("-password");
 
     if (!user) {
-      res.status(401);
+      res.status(400);
       throw new Error("User not found!!");
     }
 
