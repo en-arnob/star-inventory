@@ -119,4 +119,13 @@ exports.logout = asyncHandler(async (req, res) => {
   return res.status(200).json({ message: "Logged out successfully" });
 });
 
-exports.getUserData = asyncHandler(async (req, res) => {});
+exports.getUserData = asyncHandler(async (req, res) => {
+  const user = await User.findById(req.user._id);
+  if (user) {
+    const { _id, name, bio, email, photo, phone } = user;
+    res.status(200).json({ _id, name, bio, email, photo, phone });
+  } else {
+    res.status(400);
+    throw new Error("User not found.");
+  }
+});
