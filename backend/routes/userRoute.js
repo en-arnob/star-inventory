@@ -9,6 +9,7 @@ module.exports = (app) => {
   userRouter.get("/get-user-data", protected, userController.getUserData);
   userRouter.get("/loginstatus", userController.isLoggedIn);
   userRouter.patch("/updateuser", protected, userController.updateUser);
+  userRouter.patch("/changepassword", protected, userController.changePassword);
 
   app.use("/api/user", userRouter);
 };
