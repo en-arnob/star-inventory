@@ -7,6 +7,8 @@ module.exports = (app) => {
   userRouter.post("/login", userController.login);
   userRouter.get("/logout", userController.logout);
   userRouter.get("/get-user-data", protected, userController.getUserData);
+  userRouter.get("/loginstatus", userController.isLoggedIn);
+  userRouter.patch("/updateuser", protected, userController.updateUser);
 
   app.use("/api/user", userRouter);
 };
