@@ -194,3 +194,7 @@ exports.changePassword = asyncHandler(async (req, res) => {
     throw new Error("Old password is not correct.");
   }
 });
+
+exports.resetPassword = asyncHandler(async (req, res) => {
+  res.status(200).send("password reset");
+});
