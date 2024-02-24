@@ -10,6 +10,7 @@ module.exports = (app) => {
   userRouter.get("/loginstatus", userController.isLoggedIn);
   userRouter.patch("/updateuser", protected, userController.updateUser);
   userRouter.patch("/changepassword", protected, userController.changePassword);
+  userRouter.post("/resetpassword", userController.resetPassword);
 
   app.use("/api/user", userRouter);
 };
